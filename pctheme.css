@@ -1,0 +1,131 @@
+:root {
+    --background-color: #FFFFFF; /* Vintage off-white, like an old card deck */
+    --card-background-start: #FFFFFF; /* Pure white, like a card face */
+    --card-background-end: #E6E6E6; /* Very light gray for subtle gradient */
+    --card-shadow: rgba(0, 0, 0, 0.15); /* Gentle black shadow */
+    --card-border: #000000; /* Black border for the cards */
+    --card-text-color: #000000; /* Black text */
+    --card-text-shadow: rgba(255, 255, 255, 0.5); /* White for readability */
+    --table-background: #FFFFFF; /* Table background to match card face */
+    --table-header-bg: #E6E6E6; /* Slightly gray header */
+    --progress-bg: #EFEFEF; /* Very light gray for progress bar background */
+    --progress-bar-bg: #C8102E; /* Classic red, like hearts and diamonds */
+    --progress-bar-gold: #FFD700; /* Gold for the high score progress bar */
+    --metadata-border: #000000; /* Black border for metadata rows */
+    --metadata-bg: #E6E6E6; /* Slightly gray background for metadata */
+}
+
+body {
+    font-family: "Times New Roman", serif; /* Classic font for a card theme */
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: nowrap; /* This prevents the cards from wrapping to the next line */
+    overflow-x: auto; /* enables horizontal scrolling */
+    overflow-y: hidden; /* disables vertical scrolling */
+    white-space: nowrap; /* keeps the cards in a single row */
+    gap: 1rem;
+    width: 100%;      /* Take full width of its parent container */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile web */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer and Edge */
+}
+/* Hides the scrollbar */
+.card-container::-webkit-scrollbar {
+    width: 0;  /* for horizontal scroll, set the width to 0 */
+    height: 0; /* for vertical scroll, set the height to 0 */
+}
+
+.card-container::-moz-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.card-container::-ms-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.description {
+    text-wrap:wrap;
+    font-style:italic;
+    text-align:center;
+}
+
+
+.card {
+    background: linear-gradient(to bottom right, var(--card-background-start), var(--card-background-end));
+    border: 2px solid var(--card-border);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transition: transform 0.3s;
+    border-radius: 5px; /* Slight curve, like real playing cards */
+    padding: 20px;
+    margin-top: 2rem; /* Adjust as needed */;
+    margin-bottom: 2rem; /* Adjust as needed */
+    width:400px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--card-text-color);
+    text-shadow: 2px 2px 2px var(--card-text-shadow);
+}
+
+.card p {
+    margin: 0.5rem 0;
+}
+
+.table {
+    width: 100%;
+    border-radius: 10px;
+    border-collapse: collapse;
+    background-color: var(--table-background);
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.table td, .table th {
+    border: 0px solid #ddd;
+    padding: 0.24rem;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: var(--table-header-bg);
+}
+
+.progress-bar-container {
+    width: 100px;
+    background-color: var(--progress-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--progress-bar-bg);
+    height: 12px;
+    border-radius: 1px;
+}
+
+.gold {
+    background-color: var(--progress-bar-gold);
+}
+
+.METADATA, .DATA {
+    border-bottom: 1px solid var(--metadata-border);
+    background: var(--metadata-bg);
+    padding-left: 20px;
+}
